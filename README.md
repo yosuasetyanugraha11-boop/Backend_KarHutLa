@@ -57,3 +57,42 @@ Berikut adalah daftar lengkap *endpoint* beserta contoh format *request* dan *re
     "tanggal_lapor": "2026-10-25T10:00:00"
   }
   ]
+
+### 3. Menambahkan Laporan Baru
+* **Method:** `POST`
+* **Endpoint:** `/laporan`
+* **Deskripsi:** Menambahkan data laporan kebakaran baru ke dalam database.
+* **Contoh Response (JSON):**
+  ```json
+  {
+  "id_pengguna": 2,
+  "id_wilayah": 1,
+  "deskripsi": "Titik api baru terpantau di area hutan kota",
+  "status": "menunggu"
+  }
+
+### 4. Memperbarui Laporan
+* **Method:** `PUT`
+* **Endpoint:** `/laporan/<id_laporan>`
+* **Deskripsi:** Memperbarui deskripsi atau status laporan berdasarkan ID tertentu.
+* **Contoh Request Body (JSON):**
+  ```json
+  {
+  "deskripsi": "Penanganan api di hutan kota sudah terkendali",
+  "status": "selesai"
+  }
+* **Contoh Response (JSON):**
+  ```json
+  {
+  "message": "Laporan berhasil diperbarui"
+  }
+
+### 5. Menghapus Laporan
+* **Method:** `DELETE`
+* **Endpoint:** `/laporan/<id_laporan>`
+* **Deskripsi:** Menghapus data laporan dari database berdasarkan ID.
+* **Contoh Response Body (JSON):**
+  ```json
+  {
+  "message": "Laporan berhasil dihapus"
+  }
