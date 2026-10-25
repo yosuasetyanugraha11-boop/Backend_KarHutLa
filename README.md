@@ -25,14 +25,35 @@ yang mencakup tabel `pengguna`, `profil_pengguna`, `wilayah`, `laporan_kebakaran
 
 ## 🔌 Daftar Endpoint API
 
-Berikut adalah daftar *endpoint* utama yang tersedia pada aplikasi backend ini:
+Berikut adalah daftar lengkap *endpoint* beserta contoh format *request* dan *response* pada aplikasi backend ini:
 
-| Method | Endpoint | Deskripsi |
-| :--- | :--- | :--- |
-| GET | `/` | Mengecek status keaktifan dan daftar endpoint API |
-| GET | `/laporan` | Menampilkan seluruh data laporan kebakaran |
-| POST | `/laporan` | Menambahkan data laporan kebakaran baru |
-| PUT | `/laporan/<id_laporan>` | Memperbarui deskripsi atau status laporan berdasarkan ID |
-| DELETE | `/laporan/<id_laporan>` | Menghapus laporan kebakaran berdasarkan ID |
+### 1. Cek Status API
+* **Method:** `GET`
+* **Endpoint:** `/`
+* **Deskripsi:** Memeriksa apakah server API aktif dan menampilkan daftar rute yang tersedia.
+* **Contoh Response (JSON):**
+  ```json
+  {
+    "message": "API Sistem Informasi Kebakaran Aktif",
+    "endpoints": {
+      "get_laporan": "/laporan (GET)",
+      "tambah_laporan": "/laporan (POST)"
+    }
+  }
 
----
+### 2. Menampilkan Seluruh Laporan
+* **Method:** `GET`
+* **Endpoint:** `/laporan`
+* **Deskripsi:** Mengambil seluruh data laporan kebakaran dari database Supabase.
+* **Contoh Response (JSON):**
+  ```json
+  [
+  {
+    "id_laporan": 1,
+    "id_pengguna": 2,
+    "id_wilayah": 1,
+    "deskripsi": "Kebakaran lahan kosong di dekat permukiman",
+    "status": "proses",
+    "tanggal_lapor": "2026-10-25T10:00:00"
+  }
+  ]
